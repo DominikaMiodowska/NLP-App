@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="shortcut icon" href="">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                NLP 
+            </div>
+            <div class="">
+                
+            </div>
+        </header>
+
+        <main>
+                <!-- <section>
+                        <form class="" onsubmit="return Client.handleSubmit(event)">
+                            <input id="article_URL" type="text" name="input" value="" placeholder="Name">
+                            <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                        </form>
+                    </section>
+                    <section>
+                        <strong>Input result:</strong>
+                        <div id="title"></div>
+                        <strong>message:</strong>
+                        <div id="results"></div>
+                    </section> -->
+
+
+                    <section>
+
+                            <form class="" onsubmit="return Client.handleSubmit(event)">
+                                <label for="test-statement">Type in a statement to see what the Aylien NLP understands</label>
+                                <input required id="test-statement" type="text" placeholder="John is a very good football player." />
+                                <input type="submit" value="submit" />
+                            </form>
+                        </section>
+                            
+                        <section class="text-results">
+                            <ul>
+                                <li>
+                                    <h3>Text Polarity:</h3>
+                                    <p id="text_polarity"></p>
+                                    <h4>Confidence:</h4>
+                                    <p id="text_polarity_confidence"></p>
+                                </li>
+                                <li>
+                                    <h3>Text Subjectivity:</h3>
+                                    <p id="text_subjectivity"></p>
+                                    <h4>Confidence:</h4>
+                                    <p id="text_subjectivity_confidence"></p>
+                                </li>
+                            </ul>
+                        </section>
+                            
+                        <hr />
+
+
+                    <section>
+                            <form class="" onsubmit="return Client.handleSubmitArticle(event)">
+                                <label for="test-statement">Type an url</label>
+                                <input id="article_URL_2" type="url" placeholder="https://....">
+                                <input type="submit" value="submit">
+                                <!-- <div onclick="Client.handleSubmitArticle(event)" style="width: 100px; height: 40px">Custom submit</div> -->
+                            </form>
+                        </section>
+                        <section class="url-results">
+                                <ul>
+                                  <li>
+                                    <h3>Text Polarity:</h3>
+                                    <p id="polarity"></p>
+                                    <h4>Confidence:</h4>
+                                    <p id="polarity_confidence"></p>
+                                  </li>
+                        
+                                  <li>
+                                    <h3>Text Subjectivity:</h3>
+                                    <p id="subjectivity"></p>
+                                    <h4>Confidence:</h4>
+                                    <p id="subjectivity_confidence"></p>
+                                  </li>
+                        
+                                  <li>
+                                    <h3>Text Excerpt:</h3>
+                                    <p id="excerpt"></p>
+                                  </li>
+                                </ul>
+                              </section>
+            
+            
+            
+            
+            
+            <!-- <section>
+
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <label for="test-statement">Type in a statement to see what the Aylien NLP understands</label>
+                    <input required id="test-statement" type="text" placeholder="John is a very good football player." />
+                    <input type="submit" value="submit" />
+                </form>
+            </section>
+                
+            <section class="text-results">
+                <ul>
+                    <li>
+                        <h3>Text Polarity:</h3>
+                        <p id="text_polarity"></p>
+                        <h4>Confidence:</h4>
+                        <p id="text_polarity_confidence"></p>
+                    </li>
+                    <li>
+                        <h3>Text Subjectivity:</h3>
+                        <p id="text_subjectivity"></p>
+                        <h4>Confidence:</h4>
+                        <p id="text_subjectivity_confidence"></p>
+                    </li>
+                </ul>
+            </section>
+                
+            <hr />
+            <section>
+                <form class="" onsubmit="return Client.handleSubmitArticle(event)">
+                    <label for="test-statement">Type an url</label>
+                    <input id="article_URL" type="url" placeholder="https://....">
+                    <input type="submit" value="submit">
+                </form>
+            </section>
+            <section class="url-results">
+                    <ul>
+                      <li>
+                        <h3>Text Polarity:</h3>
+                        <p id="polarity"></p>
+                        <h4>Confidence:</h4>
+                        <p id="polarity_confidence"></p>
+                      </li>
+            
+                      <li>
+                        <h3>Text Subjectivity:</h3>
+                        <p id="subjectivity"></p>
+                        <h4>Confidence:</h4>
+                        <p id="subjectivity_confidence"></p>
+                      </li>
+            
+                      <li>
+                        <h3>Text Excerpt:</h3>
+                        <p id="excerpt"></p>
+                      </li>
+                    </ul>
+                  </section> -->
+
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+
+
+        
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+    </body>
+</html>

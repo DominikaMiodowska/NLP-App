@@ -1,0 +1,30 @@
+form {
+    border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
+}
+
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+
+.text-results, .url-results{
+    h3, h4{
+        margin: 10px;
+        font-size: 20px;
+        color: #04204a;
+    }
+
+    p{ 
+    color: #0e50b3;
+
+    }
+}
+.test-statement, .test-url {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #05347b;
+}
