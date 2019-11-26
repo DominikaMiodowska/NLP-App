@@ -18,6 +18,10 @@ const app = express()
 app.use(cors())
 app.use(express.static('dist'))
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
 var textapi = new AYLIENTextAPI({
   application_id: process.env.API_ID,
   application_key: process.env.API_KEY
@@ -25,12 +29,11 @@ var textapi = new AYLIENTextAPI({
 
 textapi.baseURL = baseURL;
 
-textapi.sentiment({'text': 'John is a very good football player'}, function(err, result, rateLimits) {
-    console.log(rateLimits);
-    console.log(result);
-  });
+// textapi.sentiment({'text': 'John is a very good football player'}, function(err, result, rateLimits) {
+//     console.log(rateLimits);
+//     console.log(result);
+//   });
 
-;
 console.log(textapi);
 
 app.get('/', function (req, res) {
@@ -39,7 +42,7 @@ app.get('/', function (req, res) {
 
 
 app.post("/api", (req, res) => {
-    const { text } = req.query;
+    const { text } = req.body;
     console.log("Request to '/api' endpoint", text);
     textapi.sentiment({ text }, (error, result, remaining) => {
       console.log("Aylien Callback", result, remaining);
@@ -48,7 +51,7 @@ app.post("/api", (req, res) => {
   });
 
 app.post('/article', (req, res) => {
-    const { text } = req.query;
+    const { text } = req.body;
     console.log("Request to '/article' endpoint", text);
     textapi.sentiment({ url: text }, (error, result, remaining) => {
         console.log("Aylien Callback", result, remaining);
@@ -57,8 +60,8 @@ app.post('/article', (req, res) => {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
+app.listen(8080, function () {
+    console.log('Example app listening on port 8080!')
 })
 
 app.get('/get_sentiment_analysis', function (req, res) {
