@@ -2,6 +2,7 @@ var path = require('path');
 const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
+const  cors = require('cors')
 const mockAPIResponse = require('./mockAPI.js');
 
 var AYLIENTextAPI = require('aylien_textapi');
@@ -14,6 +15,7 @@ const baseURL = "https://api.aylien.com/api/v1/sentiment";
 
     
 const app = express()
+app.use(cors())
 app.use(express.static('dist'))
 
 var textapi = new AYLIENTextAPI({
@@ -36,7 +38,7 @@ app.get('/', function (req, res) {
 })
 
 
-app.get("/api", (req, res) => {
+app.post("/api", (req, res) => {
     const { text } = req.query;
     console.log("Request to '/api' endpoint", text);
     textapi.sentiment({ text }, (error, result, remaining) => {
@@ -45,7 +47,7 @@ app.get("/api", (req, res) => {
     });
   });
 
-app.get('/article', (req, res) => {
+app.post('/article', (req, res) => {
     const { text } = req.query;
     console.log("Request to '/article' endpoint", text);
     textapi.sentiment({ url: text }, (error, result, remaining) => {
