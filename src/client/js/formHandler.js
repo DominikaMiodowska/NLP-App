@@ -6,12 +6,6 @@ function handleSubmit(event) {
     if (!text) return;
     console.log(text);
 
-    // const endPoint = new URL('http://localhost:8081/api');
-    // endPoint.search = new URLSearchParams({
-    //     text:text
-    // });
-    // fetch(endPoint)
-
     fetch("/api", {
         method: "POST",
         mode: "cors",
@@ -39,15 +33,9 @@ function handleSubmitArticle(event) {
     console.log("url field");
     // console.log(document.getElementById("article_URL_2"))
     // console.log(url);
-    if (!url) return;
+    if (!url) return validURL ;
     console.log(url);
-    
-    // const endPoint = new URL('http://localhost:8081/article');
-    // endPoint.search = new URLSearchParams({
-    //     text: url,
-    // });
-    // fetch(endPoint)
-    
+        
     fetch("/article", {
         method: "POST",
         mode: "cors",
@@ -70,8 +58,4 @@ function handleSubmitArticle(event) {
     })
   }
 
-export { handleSubmit,  validURL, handleSubmitArticle}
-
-//   export {handleSubmit, handleSubmitArticle };
-
-  
+export { handleSubmit,  validURL, handleSubmitArticle} 
